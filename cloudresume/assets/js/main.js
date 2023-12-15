@@ -387,7 +387,7 @@
 			
 		// Initialize.
 				
-		/*
+		
 		const counter = document.querySelector(".counter-number");
 		async function updateCounter() {
 			let response = await fetch("https://zuuepxbcwn6jp3zaawvjshk2ve0velcg.lambda-url.us-east-1.on.aws/");
@@ -396,8 +396,8 @@
 		}
 
 		updateCounter();
-		*/
-
+		
+		/*
 		const counter = document.querySelector(".counter-number");
 
 		async function updateCounter() {
@@ -415,7 +415,31 @@
 		}
 
 		updateCounter();
-
+		
+		
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log("DOM fully loaded and parsed");
+			console.log(document.querySelector(".counter-number"));
+			const counter = document.querySelector(".counter-number");
+		
+			async function updateCounter() {
+				try {
+					let response = await fetch("https://e55axqu175.execute-api.us-east-1.amazonaws.com/cloudresumefunction");
+					if (!response.ok) {
+						throw new Error(`HTTP error! status: ${response.status}`);
+					}
+					let data = await response.json();
+					counter.innerHTML = `Welcome to the Future, Visitor #: ${data.views}`;
+				} catch (e) {
+					console.log('Error fetching view count:', e);
+					counter.innerHTML = "Couldn't read views";
+				}
+			}
+		
+			updateCounter();
+		});
+		
+		*/
 
 			// Hide main, articles.
 				$main.hide();
